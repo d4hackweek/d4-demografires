@@ -33,7 +33,8 @@ paper_variables<-c("B03003_003","B03002_004E","B03002_012E","B03002_001E","B0100
                    "B17005_011E","B17005_017E","B17005_022E","B17005_001E",
                    "B12006_021E","B01002_001E","B12006_032E","B12006_043E","B12006_054E",
                    "B12006_019E","B12006_030E","B12006_041E","B12006_052E",
-                   "B05001_006E","B05001_001E","B26001_001E")
+                   "B05001_006E","B05001_001E","B26001_001E", "B01001001", 
+                   "B01001026", "B03002005", "B03002001")
 
 vars10 <- c("P005003", "P005004", "P005006", "P004003")
 
@@ -92,7 +93,9 @@ paper_data$pov_log<-log(paper_data$pov,base = exp(1)) #The author's make this tr
 
 paper_data$noncit<-(B05001_006E/B05001_001E)*100
 
+paper_data$female <- (B01001026/B01001001) #percent female
 
+paper_data$pct_native <- (B03002007/B03002001) #pct native_american
 
 
 paper_data$cat<-ifelse(paper_data$pct_65andolder<14,"Aging or Aged",
