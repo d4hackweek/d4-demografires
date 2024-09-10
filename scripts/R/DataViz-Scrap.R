@@ -14,6 +14,9 @@ a<-makettest("SOVI_SCORE", "SOVI")
 makettest("pct_immobile_1yr", "% Immobile 1 Year")
 makettest("pov_percent", "Poverty %")
 makettest("B19013_001E", "Median HH Income")
+makettest("pct_female_headed_hh", "% Female Headed HH")
+makettest("pct_unemployed", "% Unemployed")
+
 
 tnat <- as.data.frame(t(unlist(t.test(pct_native ~ WFIRRISK, data = alldat))))
 tnat$Var <- "% Native American"
