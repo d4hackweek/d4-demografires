@@ -1,6 +1,18 @@
 
 alldat <- read_rds("./DATA/ALLDATA.RDS")
 
+tnat <- as.data.frame(t(unlist(t.test(pct_native ~ WFIRRISK, data = alldat))))
+tnat$Var <- "% Native American"
+
+tfem <- as.data.frame(t(unlist(t.test(female ~ WFIRRISK, data = alldat))))
+tfem$Var <- "% Female"
+
+tnocit <- as.data.frame(t(unlist(t.test(noncit ~ WFIRRISK, data = alldat))))
+tfem$Var <- "% Non Citizen"
+
+textract <- as.data.frame(t(unlist(t.test(pct_extractive ~ WFIRRISK, data = alldat))))
+textract$Var <- "% Extractive"
+
 tblk <- as.data.frame(t(unlist(t.test(pct_black ~ WFIRRISK, data = alldat))))
 tblk$Var <- "% Black"
 
