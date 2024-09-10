@@ -1,6 +1,20 @@
 
 alldat <- read_rds("./DATA/ALLDATA.RDS")
 
+makettest <- function(var, title){
+  df <- as.data.frame(t(unlist(t.test(get(var) ~ WFIRRISK, data = alldat))))
+  df$Var <- paste0(title)
+  return(df)
+}
+
+makettest("pct_native", "% Native American")
+
+a<-makettest("SOVI_SCORE", "SOVI")
+
+makettest("pct_immobile_1yr", "% Immobile 1 Year")
+makettest("pov_percent", "Poverty %")
+makettest("B19013_001E", "Median HH Income")
+
 tnat <- as.data.frame(t(unlist(t.test(pct_native ~ WFIRRISK, data = alldat))))
 tnat$Var <- "% Native American"
 
@@ -9,6 +23,9 @@ tfem$Var <- "% Female"
 
 tnocit <- as.data.frame(t(unlist(t.test(noncit ~ WFIRRISK, data = alldat))))
 tfem$Var <- "% Non Citizen"
+
+tlths <- as.data.frame(t(unlist(t.test(percent_lessthanHS ~ WFIRRISK, data = alldat))))
+tfem$Var <- "% Less Than HS"
 
 textract <- as.data.frame(t(unlist(t.test(pct_extractive ~ WFIRRISK, data = alldat))))
 textract$Var <- "% Extractive"

@@ -21,6 +21,8 @@ paper_variables<-c("B03003_003","B03002_004E","B03002_012E","B03002_001E","B0100
                    "B15002_006E","B15002_007E","B15002_008E","B15002_009E",
                    "B15002_010E","B15002_011E","B15002_012E","B15002_013E",
                    "B15002_014E","B15002_015E","B15002_016E","B15002_001E",
+                   "B15002_020E", "B15002_021E", "B15002_022E", "B15002_023E",
+                   "B15002_024E", "B15002_025E", "B15002_026E", "B15002_027E",
                    "C24050_004E","C24050_002E","C24050_029E","C24050_001E",
                    "C24050_014E","B12006_006E","B12006_011E","B12006_017E",
                    "B12006_022E","B12006_029E","B12006_033E","B12006_039E",
@@ -34,7 +36,8 @@ paper_variables<-c("B03003_003","B03002_004E","B03002_012E","B03002_001E","B0100
                    "B12006_021E","B01002_001E","B12006_032E","B12006_043E","B12006_054E",
                    "B12006_019E","B12006_030E","B12006_041E","B12006_052E",
                    "B05001_006E","B05001_001E","B26001_001E", "B01001_001E", 
-                   "B01001_026E", "B03002_005E", "B03002_001E", "B03002_007E")
+                   "B01001_026E", "B03002_005E", "B03002_001E", "B03002_007E",
+                   "B19013_001E")
 
 vars10 <- c("P005003", "P005004", "P005006", "P004003")
 
@@ -68,8 +71,8 @@ paper_data$pct_65andolder<-(B01001_020E+B01001_021E+B01001_022E+B01001_023E+B010
 
 paper_data$pct_immobile_1yr<-(B07003_004E+B07003_007E)/B07003_001E*100 #Calculates percent immbole 1 year ago
 
-paper_data$percent_lessthanHS<-(B15002_002E+B15002_003E+B15002_004E+B15002_005E+B15002_006E+B15002_007E+B15002_008E+B15002_009E+B15002_010E+
-                                  B15002_011E+B15002_012E+B15002_013E+B15002_014E+B15002_015E+B15002_016E)/B15002_001E*100
+paper_data$percent_lessthanHS<-(B15002_003E+B15002_004E+B15002_005E+B15002_006E+B15002_007E+B15002_008E+B15002_009E+B15002_010E+
+                                  B15002_020E + B15002_021E + B15002_022E+ B15002_023E+ B15002_024E+ B15002_025E+ B15002_026E+ B15002_027E)/B15002_001E*100
 #Calculates the percent of the population over 25 years without a high school education 
 
 #The following code classified counties as southern if they are in a state in the Southern Census Region. It assigns a one to southern counties and a zero to non-southern counties.
