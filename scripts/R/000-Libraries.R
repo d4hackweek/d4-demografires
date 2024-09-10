@@ -65,7 +65,10 @@ pkgs <- c(
   "ggridges",
   "janitor",
   "gghighlight",
-  "inflection"
+  "inflection",
+  "ggpubr",
+  "gtable",
+  "gridExtra"
   
 )
 

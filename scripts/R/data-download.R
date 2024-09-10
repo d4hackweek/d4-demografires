@@ -15,5 +15,6 @@ NRI <- read_csv("./DATA/NRI_table_counties.csv") %>%
 source("./SCRIPTS/R/Census-Data-Download.R")
 
 alldat <- left_join(NRI, paper_data, by = c("STCOFIPS" = "GEOID")) %>%
-  mutate(WFIRRISK = if_else(WFIR_RISKR %in% c("Very High", "Relatively High"),1,0))
+  mutate(WFIRRISK = if_else(WFIR_RISKR !%in% c("Very High", "Relatively High"),"WildFires","Not Wildfires"))
 
+write_rds(alldat, "./DATA/ALLDATA.RDS")
