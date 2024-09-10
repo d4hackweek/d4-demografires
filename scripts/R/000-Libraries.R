@@ -1,7 +1,7 @@
 ###------LIBRARY SETUP-----
 ## @knitr libraries
 
-# rm(list = ls()) # Remove Previous Workspace
+rm(list = ls()) # Remove Previous Workspace
 gc(reset = TRUE) # Garbage Collection
 
 
