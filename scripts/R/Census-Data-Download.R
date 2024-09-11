@@ -8,6 +8,10 @@ library(viridis)
 library(ggthemes)
 library(curl)
 
+
+data(fips_codes)
+stfips <- unique(fips_codes$state_code)[1:51]
+
 options(tigris_class="sf") #Data from shapefiles will come as dataframes in R
 options(tigris_use_cache=TRUE) #Stores files used in the analysis 
 
@@ -47,7 +51,13 @@ varsag<-c("B01001_025E","B01001_049E")
 #  year = 2010, summary_var = "P001001",state="PR")
 
 
-paper_data<-get_acs(geography="county",variables=paper_variables,year=2022, output="wide",geometry=TRUE,resolution="20m") %>%
+paper_data<-get_acs(geography="tract",
+                    state = stfips,
+                    variables=paper_variables,
+                    year=2022, 
+                    output="wide",
+                    geometry=TRUE,
+                    resolution="20m") %>%
   shift_geometry()
 
 #paper_data<-get_acs(state=72,geography="state",variables=varsag,year=2019, output="wide") 
