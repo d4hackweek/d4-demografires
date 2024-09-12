@@ -1,16 +1,24 @@
 
 alldat <- read_rds("./DATA/ALLDATA.RDS")
 
-makettest <- function(var, title){
+makettest <- function(var){
   df <- as.data.frame(t(unlist(t.test(get(var) ~ WFIRRISK, data = alldat))))
-  df$Var <- paste0(title)
+  df$Var <- paste0(var)
   return(df)
 }
 
-makettest("pct_native", "% Native American")
+varloop <- names(alldat)[c(13,15:33)]
 
-a<-makettest("SOVI_SCORE", "SOVI")
+varloop <- names(alldat)[c(11,13:31)]
 
+ttests <- data.table::rbindlist(lapply(varloop, makettest))
+
+
+tsovi<-makettest("SOVI_SCORE", "SOVI")
+timmob
+tpov
+thhinc
+tunemp
 makettest("pct_immobile_1yr", "% Immobile 1 Year")
 makettest("pov_percent", "Poverty %")
 makettest("B19013_001E", "Median HH Income")
